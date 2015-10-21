@@ -5,7 +5,6 @@ Date: Oct. 2015
 */
 
 #include "PID.h"
-#include <limits>
 
 // Constructor
 PID::PID(P, I, D)
@@ -23,7 +22,9 @@ float PID::update(error)
   float p_value = K_P * current_error;
   float d_value = K_D * (current_error - previous_error);
   
+  // handle the memory elements of the PID controller
   total_error += current_error;
+  previous_error = current_error;
   
   // limit the integrated error to prevent integrator wind-up
   if (total_error > integrator_max)

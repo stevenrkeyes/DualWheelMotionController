@@ -1,6 +1,8 @@
 #ifndef PID_H
 #define PID_H
 
+#include <limits>
+
 class PID
 {
   protected:

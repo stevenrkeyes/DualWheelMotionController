@@ -9,6 +9,7 @@ Sept. 2015
 
 
 //Include the SPI bus library, the encoder buffer library, and the motor shield library
+#include "PID.cpp"
 #include "Arduino.h"
 #include "SPI.h"
 #include "LS7366.h"

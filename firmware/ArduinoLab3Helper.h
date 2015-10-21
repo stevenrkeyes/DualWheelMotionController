@@ -10,7 +10,7 @@ Sept. 2015
 
 #include "Arduino.h"
 #include "LS7366.h"
-#include "DualMC33926MotorShield.h"
+//#include "DualMC33926MotorShield.h"
 
 
 //Some useful constant definitions
