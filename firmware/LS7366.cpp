@@ -4,6 +4,8 @@ AUTHOR: Daniel J. Gonzlaez - dgonz@mit.edu
 DATE: June 2015
 */
 
+#include "SPI.h"
+
 //=========================HEADER=============================================================
 /*
    

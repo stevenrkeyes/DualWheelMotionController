@@ -5,16 +5,15 @@ Date: Oct. 2015
 */
 
 #include "PID.h"
-
 // Constructor
-PID::PID(P, I, D)
+PID::PID(float P, float I, float D)
 {
   K_P = P;
   K_I = I;
   K_D = D;
 }
 
-float PID::update(error)
+float PID::update(float error)
 {
   current_error = error;
   
