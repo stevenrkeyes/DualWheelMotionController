@@ -14,6 +14,7 @@ Oct. 2015
 #include "LS7366.h"
 #include "DualMC33926MotorShield.h"
 #include "vehicle_odometry.h"
+#include "vehicle_controller.h"
 
 #define FREQ 2000
 #define PERIOD 0.0005
@@ -39,13 +40,13 @@ void loop() {
     currentTime = micros();
     prevTime = currentTime; //update timer
     
-    // check serial
-    // act on serial
+    // Call the serial interface class to get and updates from the master computer
+    // if there are any updates, apply them to the motion controller
     // update odometry
     // calculate error
     // run controller
     // send commands to motors
-    // send update over serial
+    // send update over serial using the serial interface
     
   }
 }
