@@ -3,9 +3,7 @@
 
 #include "Arduino.h"
 #include "vehicle_odometry.h"
-
-#define b 0.225
-#define r 0.037
+#include "vehicle_controller.h"
 
 class SerialInterface {
   public:
@@ -31,7 +29,7 @@ class SerialInterface {
     Output: None
     Usage; Call this function to check and receive serial data in each timed loop
     */
-    void sendSerialData(const VehicleOdometry & robotPos);
+    void SendUpdateToMaster(VehicleOdometry vehicle_odometry);
     /*Function Name: receiveSerialData();
     Effect: Initialize all public member variables of the class to 0
     Modifies: 
@@ -44,7 +42,7 @@ class SerialInterface {
     Output: None
     Usage; Call this function to send serial data in each timed loop
     */   
-    void receiveSerialData();
+    void ReceiveCommandsAndUpdateController(VehicleController vehicle_controller);
     /*Function Name: updateStatus(boolean finished);
     Effect: change the private member variable boolean finished
     Modifies: private member variable boolean finished

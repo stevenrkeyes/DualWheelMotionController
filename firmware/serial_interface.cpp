@@ -1,5 +1,6 @@
 #include "serial_interface.h"
 #include "vehicle_odometry.h"
+#include "vehicle_controller.h"
 
 #define SERIAL_FREQ 100
 #define SERIAL_PERIOD 0.01
@@ -10,13 +11,13 @@ void SerialInterface::initialize() {
   return;
 }
 
-void SerialInterface::sendSerialData(const VehicleOdometry & robotPos) {
+void SerialInterface::SendUpdateToMaster(VehicleOdometry vehicle_odometry) {
   if (micros() - prevSerialTime >= SERIAL_PERIOD_MICROS) {
-    Serial.print(robotPos.X, 6); //X
+    Serial.print(vehicle_odometry.X, 6); //X
     Serial.print(",");
-    Serial.print(robotPos.Y, 6); //Y
+    Serial.print(vehicle_odometry.Y, 6); //Y
     Serial.print(",");
-    Serial.print(robotPos.Phi); //Phi
+    Serial.print(vehicle_odometry.Phi); //Phi
     Serial.print(",");
     Serial.println(finished ? 1 : 0);
     prevSerialTime = micros();
@@ -24,7 +25,7 @@ void SerialInterface::sendSerialData(const VehicleOdometry & robotPos) {
   return;
 }
 
-void SerialInterface::receiveSerialData() {
+void SerialInterface::ReceiveCommandsAndUpdateController(VehicleController vehicle_controller) {
     if (Serial.available() > 0) {
       commandString = Serial.readString();
       int i = 0;
